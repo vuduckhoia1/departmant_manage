@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_leader: false
+  user: one
+  project: one
+  time_assigned: 2022-07-08
+
+two:
+  is_leader: false
+  user: two
+  project: two
+  time_assigned: 2022-07-08

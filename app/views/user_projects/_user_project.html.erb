@@ -1,0 +1,22 @@
+<div id="<%= dom_id user_project %>">
+  <p>
+    <strong>User:</strong>
+    <%= User.find_by(id:user_project.user_id).username %>
+  </p>
+  <p>
+    <strong>Is leader:</strong>
+    <%= user_project.is_leader %>
+  </p>
+
+
+  <p>
+    <strong>Project:</strong>
+    <%= Project.find_by(id:user_project.project_id).name %>
+  </p>
+
+  <p>
+    <strong>Time assigned:</strong>
+    <%= user_project.time_assigned %>
+  </p>
+
+</div>

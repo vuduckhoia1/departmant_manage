@@ -1,0 +1,56 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :username %>
+    <%= form.text_field :username, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+  <%= form.label :role_ids, "Role" %>
+  <%= form.collection_check_boxes :role_ids, Role.where(resource_type: nil), :id, :name %>
+
+  </div>
+  <div>
+    <%= form.label :department %><br />
+    <%= form.collection_select :department_id, Department.all, :id, :name %>
+  </div>
+  <%= form.fields_for :member do |f| %>
+    <div>
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+    <div>
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday, class: 'form-control' %>
+    </div>
+    <div>
+      <%= f.label :onboard %>
+      <%= f.date_field :onboard, class: 'form-control' %>
+    </div>
+
+
+  <% end %>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<div class="jumbotron">
+<!--  <h1 class="display-4">Hello, world!</h1>-->
+<!--  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>-->
+<!--  <hr class="my-4">-->
+<!--  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
+  <div class="container col-md-6">
+    <p><%= "Email: "+user.email %></p>
+    <p><%= "Name: "+user.username %></p>
+    <p><%= "Department: "+Department.find_by(id:user.department_id).name %></p>
+    <p><%= "Address: "+user.member.address %></p>
+    <p><%= "Onboard: "+user.member.onboard.to_s %></p>
+    <p><%= "Birthday: "+user.member.birthday.to_s %></p>
+  </div>
+  <div class="container ">
+    <% user.projects.each do |pro| %>
+      <p><%= pro.name %></p>
+    <% end %>
+  </div>
+</div>

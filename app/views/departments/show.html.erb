@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="department_user">
+      <h1>
+        <%= @department.name %>
+        <% if @users.any? %>
+          <h3> User (<%= @users.count %>)</h3>
+
+          <ol class="users">
+            <%= render @users %>
+          </ol>
+        <% end %>
+      </h1>
+
+    </section>
+
+  </aside>
+  <aside class="col-md-4">
+    <section class="department_project">
+      <% if @projects.any? %>
+        <h3> Project (<%= @projects.count %>)</h3>
+        <ol class="projects">
+          <%= render @projects %>
+        </ol>
+      <% end %>
+    </section>
+  </aside>
+
+</div>
+
+<div>
+  <%= link_to "Edit this department", edit_department_path(@department) %> |
+  <%= link_to "Back to departments", departments_path %>
+
+  <%= button_to "Destroy this department", @department, method: :delete %>
+</div>
